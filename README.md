@@ -5,4 +5,4 @@ See hover states for all interactive elements on the page
 Search for GitHub users by their username
 See relevant user information based on their search 
 
-// 1
+// 
