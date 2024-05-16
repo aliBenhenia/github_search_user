@@ -1,5 +1,5 @@
 import React from 'react'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { Skeleton } from 'antd';
 
 export default function User() {
@@ -7,15 +7,17 @@ export default function User() {
   const [user, setTUser] = useState({})
   const [val, setVal] = useState('')
   
-  if (user === "aliBenhenia" || !user)
-  {
-    fetch(`https://api.github.com/users/aliBenhenia`)
-    .then((res) => res.json())
-    .then((req)=>{
-      setTUser(req)
-    })
- 
-  }
+  // for first render
+  useEffect(()=>{
+      if (user)
+      {
+        fetch(`https://api.github.com/users/aliBenhenia`)
+        .then((res) => res.json())
+        .then((req)=>{
+          setTUser(req)
+        })
+      }
+  },[])
   const handleTheme = ()=>{
     if (theme === "light")
     {
